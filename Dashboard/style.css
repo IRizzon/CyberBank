@@ -1,0 +1,21 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+
+/*-------------------Header------------------*/
+
+header{
+    display: flex;
+    justify-content: space-between;
+    background-image: linear-gradient(to right, #476d99, #385b84, #2a4a70, #1b395d, #0b294a);
+}
+
+.logo{
+    width: 80px;
+}
+
+nav{
+    display: flex;
+    flex-direction: column;
+}
