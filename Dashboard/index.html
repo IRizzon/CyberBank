@@ -1,9 +1,12 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt-br">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Ubuntu:ital,wght@0,300;0,400;0,500;0,700;1,300;1,400;1,500;1,700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0" />
 
     <link rel="stylesheet" href="style.css">
@@ -12,14 +15,43 @@
 <body>
     <header>
         <img src="../icon.png" class="logo" alt="logo"/>
-        <a href="../Login/">Sair</a>
+        <a class="sair" href="../Login/">Sair</a>
     </header>
-    <sidebar>
-        <nav>
-            <a class="icon"><span class="material-symbols-outlined">home</span></a>
-            <a class="icon"><span class="material-symbols-outlined">person</span></a>
-            <a class="icon"><span class="material-symbols-outlined">settings</span></a>
-        </nav>
-    </sidebar>
+    <div class="page">
+        <div class="sidebar">
+            <nav>
+                <a class="icon" href=""><span class="material-symbols-outlined">home</span></a>
+                <a class="icon" href=""><span class="material-symbols-outlined">person</span></a>
+                <a class="icon" href=""><span class="material-symbols-outlined">settings</span></a>
+            </nav>
+        </div>
+        <main>
+            <section>
+                <div class="dados">
+                    <div>
+                        <h1>CyberBank</h1>
+                        <span>Sem dados</span>
+                        <div>
+                            <h2>Cheque Especial:</h2>
+                            <span>Sem dados</span>
+                            <button><span class="material-symbols-outlined">visibility</span></button>
+                        </div>
+                    </div>
+                    <div class="dashboard">
+                        <h1>Nome Usuário</h1>
+                        <span>Conta sem dados</span>
+                    </div>
+                </div>
+                <div>
+                    <span>Em Breve!</span>
+                </div>
+            </section>
+            <section>
+                <div>
+
+                </div>
+            </section>
+        </main>
+    </div>
 </body>
 </html>
