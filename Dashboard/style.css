@@ -44,7 +44,7 @@ header{
     display: inline-block;
     width: 9rem;
     height: 92vh;
-    box-shadow: 5px 0px 10px #0b294a96;    
+    box-shadow: 2px 0px 10px #0b294a80;    
 }
 
 nav{
@@ -73,11 +73,192 @@ nav{
     font-size: 4rem;
 }
 
-/*------------DateCard---------------*/
+/*------------DataCard---------------*/
 
+.dataContainer{
+    margin-top: 10rem;
+    display: flex;
+    width: 90vw;
+}
 
+.container{
+    border-radius: 5px;
+    margin: 0 5rem;
+    box-shadow: 0px 0px 10px #0b294a80;
+    width: 35vw;
+}
 
+.dados{
+    border-top-left-radius: 5px;
+    border-top-right-radius: 5px;
+    padding: 2rem;
+    font-size: 5rem;
+    background-image: linear-gradient(to left bottom, #0b294a, #0b294a, #0b294a, #0b294a, #0b294a,
+    #112e50, #163457, #1b395d, #26456c, #31527a, #3c5f8a, #476d99);
+}
 
+.dados h1{
+    margin-bottom: 3rem;
+    padding: 0.5rem;
+    justify-content: center;
+    color: #0b294a;
+    font-weight: bold;
+    background-image: radial-gradient(circle, #ede3a1, #e6d88c, #e0ce76, #dac360, #d4b84a);
+    box-shadow: 0px 0px 10px #d4b84a;
+    width: 27.5%;
+    border-radius: 10px;
+}
 
+.dados button{
+    display: flex;
+    border-radius: 50%;
+    background-color: #F4FEFE;
+    box-shadow: 0px 0px 5px #F4FEFE;
+    border: none;
+    padding: 1rem;
+    width: 4rem;
+    height: 4rem;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+}
+
+.dados button span{
+    font-size: 3rem;
+    color: #0b294a;
+    text-shadow: 0px 0px 5px #0b294a70;
+}
+
+.saldo{
+    margin: 2rem;
+    color: #F4FEFE;
+    font-weight: 400;
+    font-size: 5rem;
+}
+
+.dataCheque{
+    display: flex;
+    justify-content: space-between;
+}
+
+.Cheque{
+    display: flex;
+    margin-top: 2rem;
+    font-size: 4rem;
+    color: #F4FEFE;
+    gap: 1.5rem;
+}
+
+.Cheque h2{
+    font-weight: 400;
+}
+
+.Cheque span{
+    font-weight: 400;
+}
+
+.info {
+    padding: 2rem;
+    padding-bottom: 3rem;
+}
+
+.info h1{
+    font-size: 4rem;
+    margin-bottom: 2rem;
+    font-weight: 400;
+}
+
+.info span{
+    font-size: 3rem;
+    font-weight: 300;
+}
 
 /*------------Dashboard---------------*/
+
+.dashboard{
+    display: flex;
+    border-radius: 5px;
+    box-shadow: 0px 0px 10px #0b294a80;
+    width: 50vw;
+    align-items: center;
+    justify-content: center;
+    font-size: 10rem;
+}
+
+/*--------------Buttons---------------*/
+
+.buttons{
+    display: flex;
+    margin: 5rem;
+    gap: 5rem;
+    width: 90vw;
+}
+
+.buttons button{
+    border: none;
+    border-radius: 15px;
+    width: 12vw;
+    box-shadow: 0px 0px 10px #0b294a80;
+    background-color: #F4FEFE;
+    color: #0b294a;
+    cursor: pointer;
+    transition: all 1.5s;
+}
+
+.buttons button div{
+    background-image: linear-gradient(to left bottom, #0b294a, #0b294a, #0b294a, #0b294a, #0b294a,
+    #112e50, #163457, #1b395d, #26456c, #31527a, #3c5f8a, #476d99);
+    border-radius: 15px;
+    font-size: 3rem;
+    color: #F4FEFE;
+    padding: 0.5rem;
+    font-weight: 300;
+}
+
+.buttons button span{
+    margin: 2rem;
+    font-size: 5rem;
+    text-shadow: 0px 0px 10px #0b294a70;
+}
+
+.buttons button:hover{
+    background-image: linear-gradient(to left bottom, #0b294a, #0b294a,
+    #112e50, #163457, #1b395d, #26456c, #31527a, #3c5f8a, #476d99);
+    color: #F4FEFE;
+}
+
+.buttons button:hover div{
+    background: transparent;
+}
+
+/*--------------Extrato--------------*/
+
+.extrato{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 41vw;
+    height: 8vh;
+    box-shadow: 0px 0px 10px #0b294a80;
+    padding: 0 2rem;
+    border-radius: 15px;
+}
+
+.extrato div{
+    font-size: 3.5rem;
+    font-weight: 400;
+}
+
+.extrato button{
+    width: 2rem;
+    margin-right: 5rem;
+    border: none;
+    box-shadow: none;
+    background: transparent;
+    cursor: pointer;
+}
+
+.extrato button:hover{
+    background: none;
+    color: #0b294a;
+}
