@@ -18,11 +18,15 @@ CREATE TABLE transacao (
     valor DOUBLE NOT NULL
 ) Engine=InnoDB;
 
-CREATE TABLE transferencias (
+CREATE TABLE transferencia (
 	id INT NOT NULL PRIMARY KEY AUTO_INCREMENT,
     transacao_id INT NOT NULL,
     remetente INT NOT NULL,
     destinatario INT NOT NULL,
-    FOREIGN KEY transacao (`id`),
-	FOREIGN KEY transacao (`id`),
+    FOREIGN KEY (`transacao_id`) REFERENCES transacao (`id`)
+    );
+    
+    SELECT * FROM userdata;
+    SELECT * FROM transacao;
+    SELECT * FROM transferencia;
     
