@@ -11,6 +11,8 @@ CREATE TABLE userdata (
     UNIQUE (userID, CPF)
     );
 
+INSERT INTO userdata (nome, CPF, senha, saldo, saldoCheque) VALUES ("italo", 1239874560, "123321", 100, 100 * 4);
+
 CREATE TABLE transacao (
 	id INT NOT NULL PRIMARY KEY AUTO_INCREMENT,
     tipo ENUM("deposito", "saque", "transferencia") NOT NULL,
@@ -27,6 +29,8 @@ CREATE TABLE transferencia (
     );
     
     SELECT * FROM userdata;
+    DELETE FROM userdata;
     SELECT * FROM transacao;
     SELECT * FROM transferencia;
     
+    SET sql_safe_updates=0;
