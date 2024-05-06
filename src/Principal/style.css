@@ -147,3 +147,89 @@ main{
     padding-right: 5em;
     padding-top: 1em;
 }
+
+@media screen and (max-width: 1450px) {
+
+    .backImg {
+        width: 60vw;
+        height: 90vh;
+    }
+
+    /*-----------------Campos de texto 1450px*/
+    .principal{
+        border-radius: 10px;
+        margin-bottom: 5rem;
+    }
+
+    .principal h1{
+        font-size: 4rem;
+        font-weight: 200;
+    }
+
+    .principal span{
+        width: 70%;
+        font-size: 2rem;
+        font-weight: lighter;
+        margin-top: 3em;
+        text-align: justify;
+    }
+
+    .principal h2{
+        margin-top: 1em;
+        font-size: 2.5rem;
+        color: #D4B84A;
+        text-shadow: 0px 0px 5px #d4b84ab0;
+        font-weight: 100;
+    }
+
+    .principal button{
+        margin-top: 2.5rem;
+        border-radius: 15px;
+        border: 0;
+        padding: 10px 50px;
+        background-image: radial-gradient(circle, #ede3a1, #e6d88c, #e0ce76, #dac360, #d4b84a);
+        box-shadow: 0px 0px 10px #d4b84a;
+        cursor: pointer;
+    }
+
+    .principal button a{
+        text-decoration: none;
+        color: #001e3f;
+        font-size: 5rem;
+        font-weight: 700;
+    }
+
+    /*-----------------Rodapé 1450*/
+
+    .rodape{
+        border-top-left-radius: 0px;
+        width: 100vw;
+    }
+
+    .logo{
+        margin-right: 5rem;
+    }
+
+    .rodape h1{
+        border-radius: 15px;
+        border: 0;
+        padding: 10px;
+        background-image: radial-gradient(circle, #ede3a1, #e6d88c, #e0ce76, #dac360, #d4b84a);
+        font-size: 5rem;
+        font-weight: 900;
+        color: #001e3f;
+        box-shadow: 0px 0px 10px #d4b84a;
+        margin-right: 1em;
+    }
+
+    .rodape span{
+        font-size: 1.8rem;
+        width: 30%;
+        height: 50%;
+        margin-right: 7rem;
+        border-right: #001e3f solid 2px;
+        text-align: justify;
+        padding-right: 5em;
+        padding-top: 1em;
+    }
+}

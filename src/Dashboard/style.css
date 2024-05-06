@@ -3,6 +3,7 @@
     padding: 0;
     font-size: 62.5%;
     font-family: "Ubuntu", sans-serif;
+    box-sizing: border-box;
 }
 
 .page{
@@ -79,11 +80,12 @@ nav{
     margin-top: 10rem;
     display: flex;
     width: 90vw;
+    gap: 5rem;
 }
 
 .container{
+    margin-left: 5rem;
     border-radius: 5px;
-    margin: 0 5rem;
     box-shadow: 0px 0px 10px #0b294a80;
     width: 35vw;
 }
@@ -105,7 +107,7 @@ nav{
     font-weight: bold;
     background-image: radial-gradient(circle, #ede3a1, #e6d88c, #e0ce76, #dac360, #d4b84a);
     box-shadow: 0px 0px 10px #d4b84a;
-    width: 27.5%;
+    width: 18rem;
     border-radius: 10px;
 }
 
@@ -261,4 +263,205 @@ nav{
 .extrato button:hover{
     background: none;
     color: #0b294a;
+}
+
+@media screen and (max-width: 1280px) {
+    
+    /*---------------Header 1280px */
+    header{
+        height: 6.5vh;
+    }
+    
+    .logo{
+        width: 75px;
+    }
+    
+    .sair{
+        font-size: 2rem;
+    }
+    
+    /*-----------------Sidebar 1280px */
+    .sidebar{
+        height: 88.6vh;    
+    }
+    
+    .icon{
+        width: 7rem;
+        cursor: pointer;
+        text-decoration: none;
+        color: #0b294a;
+    }
+
+    .icon span{
+        margin-top: 1.5rem;
+        margin-bottom: 1.5rem;
+        font-size: 3.5rem;
+    }
+
+    /*---------------------DataCard 1280px */
+    .dataContainer{
+        margin-top: 5rem;
+    }
+        
+    .dados{
+        font-size: 3rem;
+    }
+
+    .dados h1{
+        width: 11rem;
+    }
+    
+    
+    .dados button{
+        width: 3.5rem;
+        height: 3.5rem;
+    }
+    
+    
+    .saldo{
+        margin: 2rem;
+        color: #F4FEFE;
+        font-weight: 400;
+        font-size: 3rem;
+    }
+    
+    .dataCheque{
+        display: flex;
+        justify-content: space-between;
+    }
+    
+    .Cheque{
+        font-size: 2rem;
+        gap: 0.5rem;
+    }
+        
+    .info h1{
+        font-size: 3.5rem;
+    }
+    
+    .info span{
+        font-size: 2.5rem;
+    }
+
+    /*----------------Buttons 1280px */      
+    .buttons{
+        gap: 3.5rem;
+    }
+
+    .buttons button div{
+        font-size: 2rem;
+    }
+
+    .buttons button span{
+        font-size: 4rem;
+    }
+
+    /*----------------Extrato 1280px */
+    
+    .extrato{
+        width: 39vw;
+        height: 6vh;
+    }
+
+    .extrato div{
+        font-size: 3rem;
+    }
+
+    .extrato button{
+        margin-right: 3rem;
+    }
+}
+
+@media screen and (max-width: 800px) {
+
+    /*---------------------DataCard 800px */
+    .dataContainer{
+        flex-direction: column;
+    }
+
+    .container{
+        width: 75vw;
+    }
+        
+    .dados{
+        font-size: 3.5rem;
+    }
+
+    .dados h1{
+        width: 12.5rem;
+    }
+    
+    
+    .dados button{
+        width: 3.5rem;
+        height: 3.5rem;
+    }
+    
+    
+    .saldo{
+        margin: 2rem;
+        color: #F4FEFE;
+        font-weight: 400;
+        font-size: 4rem;
+    }
+    
+    .dataCheque{
+        display: flex;
+        justify-content: space-between;
+    }
+    
+    .Cheque{
+        font-size: 3rem;
+        gap: 1rem;
+    }
+        
+    .info h1{
+        font-size: 4rem;
+    }
+    
+    .info span{
+        font-size: 3rem;
+    }
+
+    /*----------------Dashboard 800px */
+     .dashboard{
+        width: 75vw;
+        margin-left: 5rem;
+     }
+
+    /*----------------Buttons 800px */      
+    .buttons{
+        
+        flex-direction: column;
+        align-items: center;
+        gap: 3.5rem;
+        margin: 2rem 0;
+    }
+
+    .buttons button {
+        background-image: linear-gradient(to left bottom, #0b294a, #0b294a,
+        #112e50, #163457, #1b395d, #26456c, #31527a, #3c5f8a, #476d99);
+        color: #F4FEFE;
+        width: 75%;
+    }
+
+    .buttons button div{
+        font-size: 2rem;
+        background: none;
+    }
+
+    .buttons button span{
+        font-size: 4rem;
+    }
+
+    /*----------------Extrato 800px */
+    .extrato{
+        width: 75%;
+    }
+    
+    .extrato button{
+        color: #0b294a;
+        background: transparent;
+        margin-left: 30%;
+    }
 }
