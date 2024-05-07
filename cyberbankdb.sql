@@ -4,14 +4,15 @@ USE cyberbankdb;
 CREATE TABLE userdata (
 	userID INT PRIMARY KEY AUTO_INCREMENT NOT NULL,
     nome VARCHAR(50) NOT NULL,
-    CPF INT(11) NOT NULL,
+    CPF VARCHAR(11) NOT NULL,
     senha INT(6) NOT NULL,
     saldo DOUBLE NOT NULL,
     saldoCheque DOUBLE NOT NULL,
     UNIQUE (userID, CPF)
     );
 
-INSERT INTO userdata (nome, CPF, senha, saldo, saldoCheque) VALUES ("italo", 1239874560, "123321", 100, 100 * 4);
+INSERT INTO userdata (nome, CPF, senha, saldo, saldoCheque) VALUES ("testando2", "12365498710", "123321", 100, 100 * 4);
+
 
 CREATE TABLE transacao (
 	id INT NOT NULL PRIMARY KEY AUTO_INCREMENT,

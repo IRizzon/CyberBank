@@ -1,6 +1,8 @@
 const userService = require("../Services/userService");
 
 module.exports = {
+
+    //Carregar dados do usuário
     carregarDados: async (req, res) => {
         let json = {error:'', result:[]};
         
@@ -19,20 +21,39 @@ module.exports = {
         res.json(json);
     },
 
-    carregarCPF : async (req, res) => {
-        let json = {error:'', result:{}};
+    cadastrarUsuario: async (req, res) => {
+        const { nome, CPF, senha, saldoInicial, saldoCheque } = req.body;
 
-        let userID = req.params.userID;
-        let user = await userService.carregarCPF(userID);
+        try {
+            const existingUser = await userService.carregarCPF(CPF);
+            if (existingUser) {
+                return res.status(400).json({ error: "CPF já cadastrado" });
+            }
 
-        if(user){
-            json.result = user;
+            userService.cadastrarUsuario(nome, CPF, senha, saldoInicial, saldoCheque);
+            return res.status(201).json({ message: "Usuário cadastrado com sucesso" });
+
+        } catch (error) {
+            console.error("Erro ao cadastrar usuário:", error);
+            return res.status(500).json({ error: "Erro interno do servidor" });
         }
+    },
 
-        res.json(json);
-    }//,
+    loginUsuario: async (req, res) => {
+        const { CPF, senha } = req.body;
 
-    //cadastrar: async(req, res) => {
+        try {
+            const userData = await userService.carregarCPF(CPF);
+            if (!userData || userData.senha !== senha) {
+                return res.status(401).json({ error: "CPF ou senha incorretos" });
+            }
 
-    //}
-}
+            // local para adicionar a autenticação
+
+            return res.status(200).json({ message: "Login realizado com sucesso" });
+        } catch (error) {
+            console.error("Erro ao realizar login:", error);
+            return res.status(500).json({ error: "Erro interno do servidor" });
+        }
+    }
+};

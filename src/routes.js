@@ -5,7 +5,10 @@ const router = express.Router();
 
 const userControl = require("./Controller/userControl");
 
-router.get("/Home", userControl.carregarDados);
-router.get("/Home/:userID", userControl.carregarDados);
+router.get("/home", userControl.carregarDados);
+router.get("/home/:userID", userControl.carregarDados);
+
+router.post("/cadastrar", userControl.cadastrarUsuario);
+router.post("/login", userControl.loginUsuario);
 
 module.exports = router;

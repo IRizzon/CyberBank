@@ -109,6 +109,7 @@ main{
 
 /*-----------------Rodapé-------------------*/
 
+
 .rodape{
     border-top-left-radius: 300px;
     display: flex;
@@ -148,48 +149,35 @@ main{
     padding-top: 1em;
 }
 
-@media screen and (max-width: 1450px) {
+@media screen and (max-width: 1280px) {
 
     .backImg {
-        width: 60vw;
-        height: 90vh;
+        width: 100vw;
+        height: 100vh;
     }
 
-    /*-----------------Campos de texto 1450px*/
+    /*-----------------Campos de texto 1280px*/
     .principal{
-        border-radius: 10px;
-        margin-bottom: 5rem;
+        border-top-left-radius: 30%;
+        border-bottom-right-radius: 0;
     }
 
     .principal h1{
-        font-size: 4rem;
-        font-weight: 200;
+        font-size: 3rem;
     }
 
     .principal span{
-        width: 70%;
-        font-size: 2rem;
-        font-weight: lighter;
-        margin-top: 3em;
-        text-align: justify;
+        font-size: 1.5rem;
+        margin-top: 4rem;
     }
 
     .principal h2{
-        margin-top: 1em;
-        font-size: 2.5rem;
-        color: #D4B84A;
-        text-shadow: 0px 0px 5px #d4b84ab0;
-        font-weight: 100;
+        margin-top: 4rem;
+        font-size: 1.7rem;
     }
 
     .principal button{
-        margin-top: 2.5rem;
-        border-radius: 15px;
-        border: 0;
-        padding: 10px 50px;
-        background-image: radial-gradient(circle, #ede3a1, #e6d88c, #e0ce76, #dac360, #d4b84a);
-        box-shadow: 0px 0px 10px #d4b84a;
-        cursor: pointer;
+        margin-top: 5rem;
     }
 
     .principal button a{
@@ -199,7 +187,7 @@ main{
         font-weight: 700;
     }
 
-    /*-----------------Rodapé 1450*/
+    /*-----------------Rodapé 1280*/
 
     .rodape{
         border-top-left-radius: 0px;
@@ -207,29 +195,74 @@ main{
     }
 
     .logo{
-        margin-right: 5rem;
+        margin-right: 3rem;
     }
 
     .rodape h1{
-        border-radius: 15px;
-        border: 0;
-        padding: 10px;
-        background-image: radial-gradient(circle, #ede3a1, #e6d88c, #e0ce76, #dac360, #d4b84a);
-        font-size: 5rem;
-        font-weight: 900;
-        color: #001e3f;
-        box-shadow: 0px 0px 10px #d4b84a;
-        margin-right: 1em;
+        font-size: 4rem;
+        margin-right: 5rem;
+        padding: 5px;
+        margin-left: 5rem;
     }
 
     .rodape span{
-        font-size: 1.8rem;
-        width: 30%;
-        height: 50%;
-        margin-right: 7rem;
-        border-right: #001e3f solid 2px;
-        text-align: justify;
-        padding-right: 5em;
-        padding-top: 1em;
+        font-size: 1.5rem;
+        margin-right: 0rem;
+        margin-bottom: 3rem;
+    }
+}
+
+@media screen and (max-width: 800px) {
+
+    .backImg {
+        width: 100vw;
+        height: 30vh;
+    }
+
+    /*-----------------Campos de texto 800px*/
+    .principal{
+        width: 100vw;
+        border-radius: 0;
+        margin-top: 10rem;
+    }
+
+    .principal h2{
+        font-size: 1.5rem;
+        font-weight: 500;
+    }
+
+    .principal button{
+        margin: 4rem;
+        padding: 8px;
+    }
+
+    .principal button a{
+        text-decoration: none;
+        color: #001e3f;
+        font-size: 4rem;
+        font-weight: 700;
+    }
+
+    /*-----------------Rodapé 800*/
+
+    .rodape{
+        flex-direction: column;
+        border-radius: 0;
+        width: 100vw;
+        gap: 2rem;
+        padding-top: 2rem;
+    }
+
+    .logo{
+        margin-left: 3rem;
+    }
+
+    .rodape h1{
+        font-size: 3rem;
+        margin-left: 2rem;
+    }
+
+    .rodape span{
+        display: none;
     }
 }
