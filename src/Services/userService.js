@@ -1,9 +1,11 @@
+// Importa o módulo do banco de dados
 const cyberBankDB = require("../cyberBankDB")
 
 module.exports = {
+    // Função para carregar todos os dados dos usuários
     carregarDados: () => {
         return new Promise((accept, reject) => {
-
+            // Realiza uma consulta no banco de dados para selecionar todos os dados dos usuários
             cyberBankDB.query("SELECT * FROM userdata", (error, results) => {
                 if(error){ 
                     reject(error); 
@@ -13,10 +15,11 @@ module.exports = {
             })
         })
     },
-
+    
+    // Função para carregar os dados de um usuário pelo CPF
     carregarCPF: (CPF) => {
         return new Promise((accept, reject) => {
-
+            // Realiza uma consulta no banco de dados para selecionar os dados do usuário pelo CPF
             cyberBankDB.query("SELECT * FROM userdata WHERE CPF = ?", [CPF], (error, results) => {
                 if(error){
                     reject(error);
@@ -31,11 +34,12 @@ module.exports = {
         });
     },
 
+    // Função para cadastrar um novo usuário
     cadastrarUsuario: (nome, CPF, senha, saldoInicial, saldoCheque) => {
         return new Promise((resolve, reject) => {
-            // Inserir novo usuário no banco de dados
+            // Insere um novo usuário no banco de dados com os dados fornecidos
             cyberBankDB.query(
-                "INSERT INTO userdata (nome, CPF, senha, saldo) VALUES (?, ?, ?, ?)",
+                "INSERT INTO userdata (nome, CPF, senha, saldo, saldoCheque) VALUES (?, ?, ?, ?, ?)",
                 [nome, CPF, senha, saldoInicial, saldoCheque],
                 (error, results) => {
                     if (error) {
@@ -48,9 +52,10 @@ module.exports = {
         });
     },
 
+    // Função para realizar o login do usuário
     loginUsuario: (CPF, senha) => {
         return new Promise((resolve, reject) => {
-            // Consultar o usuário pelo CPF e senha
+            // Consulta o usuário pelo CPF e senha
             cyberBankDB.query(
                 "SELECT * FROM userdata WHERE CPF = ? AND senha = ?",
                 [CPF, senha],
@@ -64,5 +69,4 @@ module.exports = {
             );
         });
     }
-
 };
