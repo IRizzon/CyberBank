@@ -49,15 +49,15 @@
                 </div>
             </section>
             <section  class="buttons">
-                    <button>
+                    <button id="btn-depositar">
                         <div>Depositar</div>
                         <span class="material-symbols-outlined">download</span>
                     </button>
-                    <button>
+                    <button id="btn-sacar">
                         <div>Sacar</div>
                         <span class="material-symbols-outlined">upload</span>
                     </button>
-                    <button>
+                    <button id="btn-transferir">
                         <div>Transferir</div>
                         <span class="material-symbols-outlined">share_windows</span>
                     </button>
@@ -67,6 +67,44 @@
                     </div>
             </section>
         </main>
+
+                <!-- Modal para Depositar -->
+        <div id="modal-depositar" class="modal">
+            <div class="modal-content">
+                <div class="content">
+                    <h1>Depositar</h1>
+                    <input type="number" placeholder="R$"/>
+                    <button>Confirmar</button>
+                </div>
+                <span class="close">&times;</span>
+            </div>
+        </div>
+
+        <!-- Modal para Sacar -->
+        <div id="modal-sacar" class="modal">
+            <div class="modal-content">
+                <div class="content">
+                    <h1>Sacar</h1>
+                    <input type="number" placeholder="R$"/>
+                    <button>Confirmar</button>
+                </div>
+                <span class="close">&times;</span>
+            </div>
+        </div>
+
+        <!-- Modal para Transferir -->
+        <div id="modal-transferir" class="modal">
+            <div class="modal-content">
+                <div class="content">
+                    <h1>Sacar</h1>
+                    <input type="number" placeholder="CPF"/>
+                    <input type="number" placeholder="R$"/>
+                    <button>Confirmar</button>
+                </div>
+                <span class="close">&times;</span>
+            </div>
+        </div>
     </div>
+    <script src="script.js"></script>
 </body>
 </html>
