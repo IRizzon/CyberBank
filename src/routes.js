@@ -6,8 +6,10 @@ const path = require('path')
 // Importa o controlador do usuário
 const userControl = require("./Controller/userControl");
                                 //tentar com render
-router.get('/', (req, res) => res.sendFile(path.join(__dirname, 'View', 'Principal', 'index.html')));
-router.get('/user', (req, res) => res.sendFile(path.join(__dirname, 'View', 'Dashboard', 'index.html')));
+router.get('/', (req, res) => res.sendFile(path.join(__dirname, 'Pages', 'home.html')));
+router.get('/user', (req, res) => res.sendFile(path.join(__dirname, 'Pages', 'dashboard.html')));
+router.get('/cadastrar', (req, res) => res.sendFile(path.join(__dirname, 'Pages', 'cadastro.html')));
+router.get('/login', (req, res) => res.sendFile(path.join(__dirname, 'Pages', 'login.html')));
 
 // Define as rotas para carregar dados, cadastrar usuário e fazer login
 router.get("/home", userControl.carregarDados);

@@ -4,6 +4,7 @@ const express = require("express");
 const cors = require("cors");
 const bodyParser = require("body-parser");
 const morgan = require("morgan");
+const path = require("path");
 
 // Importa as rotas definidas
 const routes = require("./routes")
@@ -17,7 +18,10 @@ server.use(bodyParser.json());
 server.use(morgan("dev"));
 
 // Define as rotas a serem utilizadas
-server.use("/api", routes);
+server.use(routes);
+server.use(express.static(path.join(__dirname, "View")));
+server.use(express.static(path.join(__dirname, "Assets")))
+server.use(express.static(path.join(__dirname, 'Scripts')))
 
 // Inicia o servidor na porta especificada no arquivo de ambiente
 server.listen(process.env.PORT, () =>{
