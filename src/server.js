@@ -5,12 +5,26 @@ const cors = require("cors");
 const bodyParser = require("body-parser");
 const morgan = require("morgan");
 const path = require("path");
+const session = require("express-session");
 
 // Importa as rotas definidas
 const routes = require("./routes")
+const passport = require("passport")
+require("./passport")
 
 // Instância do servidor Express
 const server = express();
+
+// Configurar sessão
+server.use(session({
+    secret: 'secret',
+    resave: false,
+    saveUninitialized: false
+}));
+
+// Iniciar Passport
+server.use(passport.initialize());
+server.use(passport.session());
 
 // Middleware para tratamento de CORS, análise do corpo da requisição
 server.use(cors());

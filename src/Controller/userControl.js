@@ -2,24 +2,67 @@
 const userService = require("../Services/userService");
 
 module.exports = {
-    // Função para carregar os dados do usuário
-    carregarDados: async (req, res) => {
+     // Função para carregar os dados do usuário logado
+     carregarDados: async (req, res) => {
+        console.log("Solicitação para carregar dados recebida!")
+
         let json = {error:'', result:[]};
-        // Carrega os dados dos usuários
-        let user = await userService.carregarDados();
+        
+        try {
+            // Obtém o CPF do usuário logado a partir do objeto de solicitação (req)
+            const CPF = req.user.CPF;
 
-        // Formata os dados e envia a resposta em formato JSON
-        for(let i in user){
+            // Carrega os dados do usuário logado pelo CPF
+            let user = await userService.carregarCPF(CPF);
+
+            // Verifica se o usuário foi encontrado
+            if (!user) {
+                return res.status(404).json({ error: "Usuário não encontrado" });
+            }
+
+            // Formata os dados e envia a resposta em formato JSON
             json.result.push({
-                conta: user[i].userID,
-                nome: user[i].nome,
-                CPF: user[i].CPF,
-                saldo: user[i].saldo,
-                saldoC: user[i].saldoCheque
+                userID: user.userID,
+                nome: user.nome,
+                CPF: user.CPF,
+                saldo: user.saldo,
+                saldoC: user.saldoCheque
             });
-        }
 
-        res.json(json);
+            res.json(json);
+        } catch (error) {
+            console.error("Erro ao carregar dados do usuário:", error);
+            return res.status(500).json({ error: "Erro interno do servidor" });
+        }
+    },
+
+    // Função para carregar a página dashboard.html com os dados do usuário
+    carregarDashboard: async (req, res) => {
+        console.log("Solicitação para carregar a página do dashboard recebida!");
+
+        try {
+            // Verifica se o usuário está autenticado
+            if (!req.user) {
+                return res.redirect('/login');
+            }
+
+            // Obtém o CPF do usuário autenticado
+            const CPF = req.user.CPF;
+
+            // Carrega os dados do usuário autenticado
+            const userData = await userService.carregarCPF(CPF);
+
+            // Verifica se os dados do usuário foram carregados com sucesso
+            if (!userData) {
+                return res.status(404).json({ error: "Usuário não encontrado" });
+            }
+
+            // Renderiza a página dashboard.html com os dados do usuário
+            res.render('dashboard', { userData });
+        } catch (error) {
+            console.error("Erro ao carregar a página do dashboard:", error);
+            return res.status(500).json({ error: "Erro interno do servidor" });
+        }
     },
 
     // Função para cadastrar um novo usuário
@@ -51,18 +94,19 @@ module.exports = {
         try {
             // Carrega os dados do usuário pelo CPF
             const userData = await userService.carregarCPF(CPF);
+            console.log("Dados do usuário:", userData);
             // Verifica se o usuário existe e se a senha está correta
             if (!userData || userData.senha !== senha) {
-                return res.status(401).json({ error: "CPF ou senha incorretos" });
+                console.log("Usuário ou senha incorretos:", userData);
+                return res.status(401).json({error: "CPF ou senha incorretos" });
             }
 
-            // Ponto de integração com autenticação (ainda a ser implementado)
-
-            return res.status(200).json({ message: "Login realizado com sucesso" });
+            console.log("Usuário autenticado com sucesso:", userData);
+            return res.status(200).json({message: "Login realizado com sucesso" });
         } catch (error) {
             
             console.error("Erro ao realizar login:", error);
-            return res.status(500).json({ error: "Erro interno do servidor" });
+            return res.status(500).json({error: "Erro interno do servidor" });
         }
     },
 

@@ -1,13 +1,16 @@
 document.addEventListener('DOMContentLoaded', function() {
-
+    
     const form = document.getElementById('loginForm');
     if(form){
         document.getElementById("loginForm").addEventListener("submit", async function(e) {
             e.preventDefault();
     
             // Captura os valores dos campos do formulário
-            const cpf = document.getElementById("cpfInput").value;
-            const senha = document.getElementById("senhaInput").value;
+            const cpf = document.getElementById("cpfLogin").value;
+            const senha = document.getElementById("passLogin").value;
+
+            console.log("CPF digitado: ", cpf);
+            console.log("senha digitada: ", senha);
     
             try {
                 // Envia os dados para a rota de login através de uma requisição POST
@@ -21,9 +24,11 @@ document.addEventListener('DOMContentLoaded', function() {
                     body: JSON.stringify({ cpf, senha })
                 });
                 const data = await response.json();
-                if (data.success) {
+                console.log("Resposta do servidor:", data);
+                if (response.ok) {
+                    console.log('Usuário logado!')
                     // Login bem-sucedido, redirecionar para a página principal
-                    window.location.href = '/user';
+                    window.location.href = '/dashboard';
                 } else {
                     alert('CPF ou senha incorretos. Por favor, tente novamente.');
                 }

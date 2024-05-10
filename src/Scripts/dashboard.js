@@ -1,3 +1,36 @@
+// Carregar dados---------------------------------------------------------------
+document.addEventListener('DOMContentLoaded', async function(){
+    try{
+        //Requisição para obter os dados do cliente
+        const response = await fetch('/home');
+        const userData = await response.json();
+
+        console.log('Dados do usuário: ', userData);
+
+        //Atualiza os dados conforme retornado no JSON
+        if (userData.result && userData.result.length > 0) {
+            
+            const user = userData.result[0];
+
+            document.getElementById('userName').innerText = user.nome;
+            document.getElementById('userBank').innerText = user.userID.toString().padStart(9, '0');
+            document.getElementById('saldo').innerText = "R$" + user.saldo.toFixed(2);
+            document.getElementById('saldoCheque').innerText = "R$" + user.saldoC.toFixed(2);
+        } else {
+
+            console.error('Nenhum usuário encontrado.');
+            alert('Nenhum usuário encontrado.');
+        }
+    } catch(error){
+
+        console.log("Erro ao carregar os dados do cliente!");
+        alert("Ocorreu um erro ao carregar os dados. Por favor tente novamente mais tarde!");
+    }
+});
+
+
+
+
 // Função para abrir o modal----------------------------------------------------
 function openModal(modalId) {
     var modal = document.getElementById(modalId);

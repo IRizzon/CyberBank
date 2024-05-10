@@ -20,12 +20,15 @@ module.exports = {
     carregarCPF: (CPF) => {
         return new Promise((accept, reject) => {
             // Realiza uma consulta no banco de dados para selecionar os dados do usuário pelo CPF
+            console.log("Consultando usuário pelo CPF:", CPF);
             cyberBankDB.query("SELECT * FROM userdata WHERE CPF = ?", [CPF], (error, results) => {
                 if(error){
+                    console.error("Erro na consulta ao banco de dados:", error);
                     reject(error);
                     return;
                 }
                 if(results.length > 0){
+                    console.log("Resultados da consulta:", results);
                     accept(results[0]);
                 }else{
                     accept(false)

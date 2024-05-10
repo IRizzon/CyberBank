@@ -24,7 +24,7 @@ document.getElementById("cadastro").addEventListener("submit", async (event) => 
     });
 
     if (response.ok) { 
-        window.location.href = "/user"; 
+        window.location.href = "/dashboard"; 
     } else { 
         const errorMessage = await response.json(); 
         alert(errorMessage.error); 
