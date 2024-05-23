@@ -6,10 +6,10 @@ document.addEventListener('DOMContentLoaded', function() {
             e.preventDefault();
     
             // Captura os valores dos campos do formulário
-            const cpf = document.getElementById("cpfLogin").value;
+            const CPF = document.getElementById("cpfLogin").value;
             const senha = document.getElementById("passLogin").value;
 
-            console.log("CPF digitado: ", cpf);
+            console.log("CPF digitado: ", CPF);
             console.log("senha digitada: ", senha);
     
             try {
@@ -21,7 +21,7 @@ document.addEventListener('DOMContentLoaded', function() {
                         'Content-Type': 'application/json'
                     },
                     // Converte os dados para JSON e os envia no corpo da requisição
-                    body: JSON.stringify({ cpf, senha })
+                    body: JSON.stringify({ CPF, senha })
                 });
                 const data = await response.json();
                 console.log("Resposta do servidor:", data);

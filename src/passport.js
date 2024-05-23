@@ -1,40 +1,38 @@
-//Immportar pacotes
 const passport = require('passport');
-const userService = require('./Services/userService');
 const LocalStrategy = require('passport-local').Strategy;
+const userService = require('./Services/userService');
 
-//Configuração de Autenticação
 passport.use(new LocalStrategy(
     {
         usernameField: 'CPF',
         passwordField: 'senha'
     },
     async (CPF, senha, done) => {
-        try{
+        try {
             const userData = await userService.carregarCPF(CPF);
 
-            if(!userData || userData.senha !== senha){
-                return done(null, false, {message: "CPF ou senha incorreto"});
+            if (!userData || userData.senha !== senha) {
+                return done(null, false, { message: "CPF ou senha incorreto" });
             }
 
             return done(null, userData);
-        } catch (error){
+        } catch (error) {
             return done(error);
         }
     }
 ));
 
-// Serialize e deserialize o usuário para manter a sessão
 passport.serializeUser((user, done) => {
     done(null, user.CPF);
-  });
-  
-  passport.deserializeUser(async (CPF, done) => {
+});
+
+passport.deserializeUser(async (CPF, done) => {
     try {
-      // Carrega os dados do usuário pelo CPF
-      const userData = await userService.carregarCPF(CPF);
-      done(null, userData);
+        const userData = await userService.carregarCPF(CPF);
+        done(null, userData);
     } catch (error) {
-      done(error);
+        done(error);
     }
-  });
+});
+
+module.exports = passport;

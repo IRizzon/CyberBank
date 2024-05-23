@@ -6,6 +6,7 @@ const bodyParser = require("body-parser");
 const morgan = require("morgan");
 const path = require("path");
 const session = require("express-session");
+const flash = require('connect-flash');
 
 // Importa as rotas definidas
 const routes = require("./routes")
@@ -27,6 +28,7 @@ server.use(passport.initialize());
 server.use(passport.session());
 
 // Middleware para tratamento de CORS, análise do corpo da requisição
+server.use(flash());
 server.use(cors());
 server.use(bodyParser.json());
 server.use(morgan("dev"));
